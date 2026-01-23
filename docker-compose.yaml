@@ -14,7 +14,7 @@ services:
       # Maps the host directory from .env to the container's /data
       - ${MC_DATA_DIR}:/data
     ports:
-      - "{PORTS}"
+      - "${PORTS}"
     restart: unless-stopped
 
   backup:
