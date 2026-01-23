@@ -10,6 +10,7 @@ services:
       LEVEL: "${MC_WORLD_NAME}"
       PUID: "${PUID}"
       PGID: "${PGID}"
+      CREATE_CONSOLE_IN_PIPE: "true"
     volumes:
       # Maps the host directory from .env to the container's /data
       - ${MC_DATA_DIR}:/data
