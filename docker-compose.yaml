@@ -1,0 +1,32 @@
+services:
+  mc:
+    image: itzg/minecraft-server
+    container_name: mc-server
+    environment:
+      EULA: "TRUE"
+      TYPE: "PAPER"
+      VERSION: "${MC_VERSION}"
+      MEMORY: "${MC_MEMORY}"
+      LEVEL: "${MC_WORLD_NAME}"
+      PUID: "${PUID}"
+      PGID: "${PGID}"
+    volumes:
+      # Maps the host directory from .env to the container's /data
+      - ${MC_DATA_DIR}:/data
+    ports:
+      - "{PORTS}"
+    restart: unless-stopped
+
+  backup:
+    image: itzg/mc-backup
+    container_name: mc-backup
+    environment:
+      BACKUP_METHOD: "tar"
+      CRON_SCHEDULE: "0 0 * * *"
+      INITIAL_DELAY: "2m"
+    volumes:
+      - ${MC_DATA_DIR}:/data:ro
+      - ${MC_BACKUP_DIR}:/backups
+    depends_on:
+      - mc
+    restart: unless-stopped

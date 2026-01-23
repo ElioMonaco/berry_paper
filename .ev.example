@@ -1,0 +1,13 @@
+# User and Group IDs
+PUID=
+PGID=
+
+# Folder Locations on your Host
+MC_DATA_DIR=
+MC_BACKUP_DIR=
+
+# Server Settings
+MC_VERSION=
+MC_MEMORY=
+MC_WORLD_NAME=
+PORTS=
