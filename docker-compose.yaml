@@ -11,9 +11,9 @@ services:
       PUID: "${PUID}"
       PGID: "${PGID}"
       CREATE_CONSOLE_IN_PIPE: "true"
-      ENABLE_RCON: "${ENABLE_RCRON}"
-      RCRON_PASSWORD: "${RCRON_PASSWORD}"
-      RCRON_PORT: "${RCRON_PORT}"
+      ENABLE_RCON: "${ENABLE_RCON}"
+      RCON_PASSWORD: "${RCON_PASSWORD}"
+      RCON_PORT: "${RCON_PORT}"
     volumes:
       # Maps the host directory from .env to the container's /data
       - ${MC_DATA_DIR}:/data
@@ -27,7 +27,7 @@ services:
     environment:
       PUID: "${PUID}"
       PGID: "${PGID}"
-      RCRON_PASSWORD: "${RCRON_PASSWORD}"
+      RCON_PASSWORD: "${RCON_PASSWORD}"
       RCON_HOST: mc
       BACKUP_METHOD: "tar"
       BACKUP_INTERVAL: "0 0 * * *"
