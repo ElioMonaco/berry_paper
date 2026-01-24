@@ -25,6 +25,8 @@ services:
     image: itzg/mc-backup
     container_name: mc-backup
     environment:
+      PUID: "${PUID}"
+      PGID: "${PGID}"
       RCRON_PASSWORD: "${RCRON_PASSWORD}"
       RCON_HOST: mc
       BACKUP_METHOD: "tar"
