@@ -32,6 +32,7 @@ services:
       BACKUP_METHOD: "tar"
       BACKUP_INTERVAL: "0 0 * * *"
       INITIAL_DELAY: "2m"
+      BACKUP_NAME: "berry_paper"
     volumes:
       - ${MC_DATA_DIR}:/data:ro
       - ${MC_BACKUP_DIR}:/backups
