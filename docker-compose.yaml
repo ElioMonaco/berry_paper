@@ -28,7 +28,7 @@ services:
       PUID: "${PUID}"
       PGID: "${PGID}"
       RCON_PASSWORD: "${RCON_PASSWORD}"
-      RCON_HOST: mc
+      RCON_HOST: mc-server
       BACKUP_METHOD: "tar"
       BACKUP_INTERVAL: "0 0 * * *"
       INITIAL_DELAY: "2m"
