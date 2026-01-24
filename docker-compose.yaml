@@ -11,6 +11,9 @@ services:
       PUID: "${PUID}"
       PGID: "${PGID}"
       CREATE_CONSOLE_IN_PIPE: "true"
+      ENABLE_RCON: "${ENABLE_RCON}"
+      RCON_PASSWORD: "${RCON_PASSWORD}"
+      RCON_PORT: "${RCRON_PORT}"
     volumes:
       # Maps the host directory from .env to the container's /data
       - ${MC_DATA_DIR}:/data
@@ -22,8 +25,10 @@ services:
     image: itzg/mc-backup
     container_name: mc-backup
     environment:
+      RCON_PASSWORD: "${RCON_PASSWORD}"
+      RCON_HOST: mc
       BACKUP_METHOD: "tar"
-      CRON_SCHEDULE: "0 0 * * *"
+      BACKUP_INTERVAL: "0 0 * * *"
       INITIAL_DELAY: "2m"
     volumes:
       - ${MC_DATA_DIR}:/data:ro
