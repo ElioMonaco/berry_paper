@@ -30,7 +30,8 @@ services:
       RCON_PASSWORD: "${RCON_PASSWORD}"
       RCON_HOST: mc-server
       BACKUP_METHOD: "tar"
-      BACKUP_INTERVAL: "0 0 * * *"
+      BACKUP_INTERVAL: "24h"
+      PRUNE_BACKUPS_DAYS: "60"
       INITIAL_DELAY: "2m"
       BACKUP_NAME: "berry_paper"
     volumes:
@@ -38,4 +39,4 @@ services:
       - ${MC_BACKUP_DIR}:/backups
     depends_on:
       - mc
-    #restart: unless-stopped
+    restart: no
