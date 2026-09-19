@@ -39,4 +39,4 @@ services:
       - ${MC_BACKUP_DIR}:/backups
     depends_on:
       - mc
-    restart: no
+    restart: unless-stopped
